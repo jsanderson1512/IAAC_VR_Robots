@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: d2cf09111809cf64f91cd2690868ffeb
+timeCreated: 1519110259
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Brep
+    100004: Brep 1
+    100006: Brep 10
+    100008: Brep 11
+    100010: Brep 12
+    100012: Brep 13
+    100014: Brep 14
+    100016: Brep 15
+    100018: Brep 16
+    100020: Brep 17
+    100022: Brep 18
+    100024: Brep 2
+    100026: Brep 3
+    100028: Brep 4
+    100030: Brep 5
+    100032: Brep 6
+    100034: Brep 7
+    100036: Brep 8
+    100038: Brep 9
+    100040: View-Front
+    100042: View-Left
+    100044: View-Perspective
+    100046: View-Top
+    400000: //RootNode
+    400002: Brep
+    400004: Brep 1
+    400006: Brep 10
+    400008: Brep 11
+    400010: Brep 12
+    400012: Brep 13
+    400014: Brep 14
+    400016: Brep 15
+    400018: Brep 16
+    400020: Brep 17
+    400022: Brep 18
+    400024: Brep 2
+    400026: Brep 3
+    400028: Brep 4
+    400030: Brep 5
+    400032: Brep 6
+    400034: Brep 7
+    400036: Brep 8
+    400038: Brep 9
+    400040: View-Front
+    400042: View-Left
+    400044: View-Perspective
+    400046: View-Top
+    2000000: View-Front
+    2000002: View-Left
+    2000004: View-Perspective
+    2000006: View-Top
+    2100000: No Name
+    2100002: cf0554cd-dbde-4c8b-a460-8e14b99c128e
+    2100004: Material-Black_Sandblasted_Plastic
+    2300000: Brep
+    2300002: Brep 1
+    2300004: Brep 10
+    2300006: Brep 11
+    2300008: Brep 12
+    2300010: Brep 13
+    2300012: Brep 14
+    2300014: Brep 15
+    2300016: Brep 16
+    2300018: Brep 17
+    2300020: Brep 18
+    2300022: Brep 2
+    2300024: Brep 3
+    2300026: Brep 4
+    2300028: Brep 5
+    2300030: Brep 6
+    2300032: Brep 7
+    2300034: Brep 8
+    2300036: Brep 9
+    3300000: Brep
+    3300002: Brep 1
+    3300004: Brep 10
+    3300006: Brep 11
+    3300008: Brep 12
+    3300010: Brep 13
+    3300012: Brep 14
+    3300014: Brep 15
+    3300016: Brep 16
+    3300018: Brep 17
+    3300020: Brep 18
+    3300022: Brep 2
+    3300024: Brep 3
+    3300026: Brep 4
+    3300028: Brep 5
+    3300030: Brep 6
+    3300032: Brep 7
+    3300034: Brep 8
+    3300036: Brep 9
+    4300000: Brep
+    4300002: Brep
+    4300004: Brep
+    4300006: Brep
+    4300008: Brep
+    4300010: Brep
+    4300012: Brep
+    4300014: Brep
+    4300016: Brep
+    4300018: Brep
+    4300020: Brep
+    4300022: Brep
+    4300024: Brep
+    4300026: Brep
+    4300028: Brep
+    4300030: Brep
+    4300032: Brep
+    4300034: Brep
+    4300036: Brep
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
