@@ -32,11 +32,13 @@ public class RobotController_Kinematics : MonoBehaviour
     public RobotModel robotModel = RobotModel.ABB_IRB_4600_60;
     public MovementMode movementMode = MovementMode.ForwardKinematics;
 
-    public bool trace = false; //tell us if the robot is going to trace the path
 
     //jeff these two things i instantiate on start...made private
-    public Transform RobotTarget_WorldSpace; //this will be the camera if camera chase is on;
+    private Transform RobotTarget_WorldSpace; //this will be the camera if camera chase is on;
+    private int TargetNumber = 0;
+    public GameObject RobotTarget_Parent_WorldSpace;
     public Transform ToolCenterPoint_WorldSpace;
+    private bool StartedCoroutine;
     private Transform tcp; //store the transformations of our current rob target and tool center point
 
     public Transform RobotTarget_RobotSpace;
@@ -55,10 +57,6 @@ public class RobotController_Kinematics : MonoBehaviour
 
     public List<List<Pose>> targetPaths = new List<List<Pose>>(); //hold the paths to drive through
 
-
-    private bool started = false; //use a boolean variable to reset our time counter
-    private float startTime = 0f; //store our starting time so we can know how much has elapsed
-    public float speed = .1f; //speed of robot in m/s
     public float axisSpeed = 0.5f; //axis speed
 
     public float[] toolOrient = { 0f, 0f, 0f, 0f }; //store our tool direction as quaternion (in robot coord system)
@@ -83,8 +81,6 @@ public class RobotController_Kinematics : MonoBehaviour
     Pose pose2 = new Pose(new Vector3(0, 1, 1), new Quaternion(0, 1, 0, 0));
     Pose pose3 = new Pose(new Vector3(1, 1, 2), new Quaternion(0, 1, 0, 0));
     Pose pose4 = new Pose(new Vector3(1, 0, 1), new Quaternion(0, 1, 0, 0));
-
-
 
 
     //HOW TO CALCULATE DH PARAMETERS:
@@ -291,7 +287,7 @@ public class RobotController_Kinematics : MonoBehaviour
             double[] axis6Range = { -400, 400 };
 
 
-             
+
 
             axisRange[0] = axis1Range;
             axisRange[1] = axis2Range;
@@ -303,8 +299,133 @@ public class RobotController_Kinematics : MonoBehaviour
         }
         #endregion
 
+
+
+        RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
     }
 
+    public void NextTarget()
+    {
+        TargetNumber++;
+        TargetNumber = Mathf.Clamp(TargetNumber,0, RobotTarget_Parent_WorldSpace.transform.childCount-1);
+        RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
+    }
+    public void PreviousTarget()
+    {
+        TargetNumber--;
+        TargetNumber = Mathf.Clamp(TargetNumber, 0, RobotTarget_Parent_WorldSpace.transform.childCount-1);
+        RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
+    }
+    public void SendPoint()
+    {
+
+        Vector3 myPos = RobotTarget_RobotSpace.localPosition;  //jeff changed this to local position so its in each robot coordinate system
+        Quaternion myRotation = RobotTarget_RobotSpace.localRotation; //jeff changed this to local rotation
+
+
+        //convert plane from unity convention to robot convention
+        //exposed in case we need to reformat here:
+        Vector3 targetPos = new Vector3(-1 * myPos.x * 1000f, -1 * myPos.z * 1000f, myPos.y * 1000f); //convert positon to mm and "correct" (robot) coordinate system
+        Quaternion targetOrient = new Quaternion(-1 * myRotation.x, -1 * myRotation.z, myRotation.y, -1 * myRotation.w); //new Quaternion(-q.x, -q.z, q.y, -q.w);
+
+        Debug.Log("sending this pose: (" + targetPos.x + ", " + targetPos.y + ", " + targetPos.z+ ") (" + targetOrient.w + ", " + targetOrient.x + ", " + targetOrient.y + ", " + targetOrient.z + ")");
+        //WORKING HERE! SEND THIS POINT TO ROS
+        //Send these points to ROS
+    }
+    public void SendAllPoints()
+    {
+        if(!StartedCoroutine)
+        {
+            StartCoroutine(LerpAllPoints());
+            StartedCoroutine = true;
+        }
+
+        /*
+        for (int i = 0; i < RobotTarget_Parent_WorldSpace.transform.childCount; i++)
+        {
+            TargetNumber = i;
+            RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
+
+            //do an ienumerator here to lerp between points at some rate
+
+            SendPoint();
+        }
+        */
+
+    }
+    IEnumerator LerpAllPoints()
+    {
+        Vector3 previousPos = Vector3.zero;
+        Quaternion previousRot = Quaternion.identity;
+
+        for (int i = 0; i < RobotTarget_Parent_WorldSpace.transform.childCount; i++)
+        {
+            TargetNumber = i;
+
+            Vector3 currentPos = Vector3.zero;
+            Quaternion currentRot = Quaternion.identity;
+
+            if (i==0)//this is the first one, so just go to it and send it to the robot
+            {
+                currentPos = RobotTarget_WorldSpace.position;
+                currentRot = RobotTarget_WorldSpace.rotation;
+
+                RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
+
+                SendPoint();
+
+                previousPos = RobotTarget_WorldSpace.position;
+                previousRot = RobotTarget_WorldSpace.rotation;
+            }
+
+
+
+            else
+            {
+
+                //JEFF IS RIGHT HERE
+                Vector3 GotoPosition = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform.position;
+                Quaternion GotoRotation = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform.rotation;
+
+                currentPos = RobotTarget_WorldSpace.position;
+                currentRot = RobotTarget_WorldSpace.rotation;
+
+                float elapsedTime = 0;
+                float waitTime = 3f;
+
+                while (elapsedTime < waitTime)
+                {
+                    RobotTarget_WorldSpace.position = Vector3.Lerp(currentPos, GotoPosition, (elapsedTime / waitTime));
+                    RobotTarget_WorldSpace.rotation = Quaternion.Lerp(currentRot, GotoRotation, (elapsedTime / waitTime));
+
+                    elapsedTime += Time.deltaTime;
+
+                    // Yield here
+                    yield return null;
+                }
+
+                //i got to the point!
+                RobotTarget_WorldSpace.position = previousPos;
+                RobotTarget_WorldSpace.rotation = previousRot;
+
+                //reset this here just to be sure
+                RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
+
+                SendPoint();
+
+                previousPos = RobotTarget_WorldSpace.position;
+                previousRot = RobotTarget_WorldSpace.rotation;
+
+
+            }
+
+
+        }
+        StartedCoroutine = false;
+
+        yield return null;
+
+    }
     public void SetJointAngles(float[] incomingAngles)
     {
         jointAngles[0] = incomingAngles[0]; //set our joint angles from the sliders
@@ -406,27 +527,6 @@ public class RobotController_Kinematics : MonoBehaviour
             Quaternion myRotation = RobotTarget_RobotSpace.localRotation; //jeff changed this to local rotation
 
 
-
-
-
-            if (trace)
-            {
-                if (!started)
-                {
-                    startTime = Time.time; //store the current time
-                    started = true;
-                }
-                //if we are tracing a preview path, get our CurrentRobTarget transform along the designated curves, replacing our fixed position and rotation of currentRobTaret
-                Pose currentPlane = getCurrentPlane(targetPaths, startTime, speed); //given the list of paths, our start time, and linear speed, return a plane for where we should be at roughly at the current time
-                myPos = currentPlane.position;  //get the sub components of our target plane
-                myRotation = currentPlane.rotation;
-                RobotTarget_RobotSpace.SetPositionAndRotation(myPos, myRotation);
-            }//end if trace
-
-
-
-
-
             //convert plane from unity convention to robot convention
             Vector3 targetPos = new Vector3(-1 * myPos.x * 1000f, -1 * myPos.z * 1000f, myPos.y * 1000f); //convert positon to mm and "correct" (robot) coordinate system
             Quaternion targetOrient = new Quaternion(-1 * myRotation.x, -1 * myRotation.z, myRotation.y, -1 * myRotation.w); //new Quaternion(-q.x, -q.z, q.y, -q.w);
@@ -435,6 +535,7 @@ public class RobotController_Kinematics : MonoBehaviour
 
             //set a transform variable to store our current target
             robCoordTarget.SetPositionAndRotation(targetPos, targetOrient);
+
 
 
             //may need to transform the quaternion of the tool
