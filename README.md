@@ -21,6 +21,10 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 Restart Machine, and then in powershell again:
 
+
+<<<TEMP JEFF HERE>>>
+
+
 ```shell
 wsl --set-default-version 2
 ```
