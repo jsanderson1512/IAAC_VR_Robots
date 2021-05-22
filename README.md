@@ -5,7 +5,7 @@ Download and install Unity Version [2019.3.6](https://unity3d.com/get-unity/down
 
 This package includes [ROS#](https://github.com/siemens/ros-sharp), a set of open source software libraries and tools for [ROS](http://www.ros.org/) communication.
 
-### WSL2 Setup ###
+## WSL2 Setup ##
 For testing on a local windows device without a second Ubuntu machine or prior WSL/ROS install.  Summary mostly from [here](https://jack-kawell.com/2020/06/12/ros-wsl2/).
 
 Install [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
@@ -45,7 +45,7 @@ source ~/.bashrc
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 ```
 
-####ROS INSTALL####
+###ROS INSTALL###
 ```shell
 sudo apt update && sudo apt upgrade
 ```
@@ -75,16 +75,16 @@ and rviz in another
 rosrun rviz rviz
 ```
 
-#### Playing Rosbags ####
+### Playing Rosbags ###
 First install rosbridge server in ubuntu
 ```sudo apt-get install ros-melodic-rosbridge-server```
 
 In separate terminals:
 ```roscore```
 ```roslaunch rosbridge_server rosbridge_websocket.launch```
-````rosbag play ur_driver.bag -l```
+```rosbag play ur_driver.bag -l```
 
-#### URSIM Install ####
+### URSIM Install ###
 Create an account and download [ursim](https://www.universal-robots.com/download/software-e-series/simulator-linux/offline-simulator-e-series-ur-sim-for-linux-582/) for the closest robot version.
 
 Copy this file into your ubuntu home directory in the windows browser `\\wsl$\Ubuntu-18.04\home\{ubuntu_username}`
