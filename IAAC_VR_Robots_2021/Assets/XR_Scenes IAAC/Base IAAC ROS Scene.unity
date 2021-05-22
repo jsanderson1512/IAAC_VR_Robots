@@ -887,7 +887,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -908,7 +908,7 @@ MonoBehaviour:
   rigidbodyDataSource: 1
   Mass: 4
   CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.006106331, y: 0.01125, z: 0.006106331}
+  InertiaTensor: {x: 1, y: 1, z: 1}
   InertiaTensorRotation: {x: 0, y: -0, z: -0, w: 1}
   UrdfMass: 4
   UrdfCenterOfMass: {x: -0, y: 0, z: 0}
@@ -986,6 +986,7 @@ GameObject:
   - component: {fileID: 351408674}
   - component: {fileID: 351408673}
   - component: {fileID: 351408672}
+  - component: {fileID: 351408679}
   m_Layer: 0
   m_Name: wrist_3_link
   m_TagString: Untagged
@@ -1049,7 +1050,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.09220024, y: 0.000000074505806, z: 0}
+  m_ConnectedAnchor: {x: -0.09220036, y: 0.00000008195639, z: -0.00000023841858}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1105,9 +1106,9 @@ MonoBehaviour:
   DisplayInertiaGizmo: 0
   rigidbodyDataSource: 1
   Mass: 0.202
-  CenterOfMass: {x: -0, y: -0.025, z: 0}
-  InertiaTensor: {x: 0.00014434577, y: 0.000204525, z: 0.00014434577}
-  InertiaTensorRotation: {x: 0, y: -0, z: -0, w: 1}
+  CenterOfMass: {x: 0.00000017881393, y: -0.009999871, z: 0.00000011920929}
+  InertiaTensor: {x: 0.0000033666693, y: 0.0000033666686, z: 0.000003366671}
+  InertiaTensorRotation: {x: 0, y: 0.0000002104789, z: 0, w: 1}
   UrdfMass: 0.202
   UrdfCenterOfMass: {x: -0, y: -0.025, z: 0}
   UrdfInertiaTensor: {x: 0.00014434577, y: 0.000204525, z: 0.00014434577}
@@ -1124,7 +1125,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1141,6 +1142,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &351408679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351408670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &354610902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1417,7 @@ GameObject:
   - component: {fileID: 441028810}
   - component: {fileID: 441028809}
   - component: {fileID: 441028808}
+  - component: {fileID: 441028814}
   m_Layer: 0
   m_Name: wrist_2_link
   m_TagString: Untagged
@@ -1440,7 +1454,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1482,7 +1496,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.11570009, y: 0.00000008940697, z: 0}
+  m_ConnectedAnchor: {x: 0.1157001, y: 0.000000074505806, z: -0.00000023841858}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1539,7 +1553,7 @@ MonoBehaviour:
   rigidbodyDataSource: 1
   Mass: 1.96
   CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.004144719, y: 0.0055125, z: 0.004144719}
+  InertiaTensor: {x: 1, y: 1, z: 1}
   InertiaTensorRotation: {x: 0, y: -0, z: -0, w: 1}
   UrdfMass: 1.96
   UrdfCenterOfMass: {x: -0, y: 0, z: 0}
@@ -1558,6 +1572,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &441028814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441028805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &480489150
 GameObject:
   m_ObjectHideFlags: 8
@@ -1618,6 +1644,7 @@ GameObject:
   - component: {fileID: 501899783}
   - component: {fileID: 501899782}
   - component: {fileID: 501899781}
+  - component: {fileID: 501899787}
   m_Layer: 0
   m_Name: shoulder_link
   m_TagString: Untagged
@@ -1654,7 +1681,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1696,7 +1723,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.1273, z: 0}
+  m_ConnectedAnchor: {x: -0.000000014901163, y: 0.12729998, z: 1.7763568e-15}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1753,7 +1780,7 @@ MonoBehaviour:
   rigidbodyDataSource: 1
   Mass: 7.778
   CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.03147431, y: 0.021875625, z: 0.03147431}
+  InertiaTensor: {x: 1, y: 1, z: 1}
   InertiaTensorRotation: {x: 0, y: -0, z: -0, w: 1}
   UrdfMass: 7.778
   UrdfCenterOfMass: {x: -0, y: 0, z: 0}
@@ -1772,6 +1799,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &501899787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501899778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &502902519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2495,6 +2534,7 @@ GameObject:
   - component: {fileID: 637607644}
   - component: {fileID: 637607643}
   - component: {fileID: 637607642}
+  - component: {fileID: 637607648}
   m_Layer: 0
   m_Name: wrist_1_link
   m_TagString: Untagged
@@ -2531,7 +2571,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2573,7 +2613,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.7763573e-15, y: 0.1639411, z: -0.5723001}
+  m_ConnectedAnchor: {x: 1.7763573e-15, y: 0.16394113, z: -0.5723003}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -2630,7 +2670,7 @@ MonoBehaviour:
   rigidbodyDataSource: 1
   Mass: 1.96
   CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.004942708, y: 0.0055125, z: 0.004942708}
+  InertiaTensor: {x: 1, y: 1, z: 1}
   InertiaTensorRotation: {x: 0, y: -0, z: -0, w: 1}
   UrdfMass: 1.96
   UrdfCenterOfMass: {x: -0, y: 0, z: 0}
@@ -2649,6 +2689,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &637607648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637607639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &652496165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5350,6 +5402,7 @@ GameObject:
   - component: {fileID: 1154088714}
   - component: {fileID: 1154088713}
   - component: {fileID: 1154088712}
+  - component: {fileID: 1154088718}
   m_Layer: 0
   m_Name: forearm_link
   m_TagString: Untagged
@@ -5386,7 +5439,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -5428,7 +5481,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: -0.612}
+  m_ConnectedAnchor: {x: 0.000000014901161, y: 0.000000021003075, z: -0.6120001}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -5484,8 +5537,8 @@ MonoBehaviour:
   DisplayInertiaGizmo: 0
   rigidbodyDataSource: 1
   Mass: 3.87
-  CenterOfMass: {x: -0, y: 0.0393, z: -0.306}
-  InertiaTensor: {x: 0.111069694, y: 0.010884375, z: 0.111069694}
+  CenterOfMass: {x: 0, y: 0, z: 0}
+  InertiaTensor: {x: 1, y: 1, z: 1}
   InertiaTensorRotation: {x: 0, y: -0, z: -0, w: 1}
   UrdfMass: 3.87
   UrdfCenterOfMass: {x: -0, y: 0.0393, z: -0.306}
@@ -5504,6 +5557,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1154088718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154088709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1174682767
 GameObject:
   m_ObjectHideFlags: 0
@@ -8188,6 +8253,7 @@ GameObject:
   - component: {fileID: 1866822235}
   - component: {fileID: 1866822234}
   - component: {fileID: 1866822233}
+  - component: {fileID: 1866822239}
   m_Layer: 0
   m_Name: upper_arm_link
   m_TagString: Untagged
@@ -8224,7 +8290,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -8266,7 +8332,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.000000014901163, y: -0.000000014901161, z: -3.079058e-15}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -8321,9 +8387,9 @@ MonoBehaviour:
   _rigidbody: {fileID: 1866822232}
   DisplayInertiaGizmo: 0
   rigidbodyDataSource: 1
-  Mass: 12.93
-  CenterOfMass: {x: -0, y: 0.175, z: -0.306}
-  InertiaTensor: {x: 0.4217538, y: 0.036365625, z: 0.4217538}
+  Mass: 12.930001
+  CenterOfMass: {x: 0, y: 0, z: 0}
+  InertiaTensor: {x: 1, y: 1, z: 1}
   InertiaTensorRotation: {x: 0, y: -0, z: -0, w: 1}
   UrdfMass: 12.93
   UrdfCenterOfMass: {x: -0, y: 0.175, z: -0.306}
@@ -8342,6 +8408,126 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1866822239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866822230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1879719652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1879719656}
+  - component: {fileID: 1879719655}
+  - component: {fileID: 1879719654}
+  - component: {fileID: 1879719653}
+  - component: {fileID: 1879719657}
+  m_Layer: 0
+  m_Name: RosConnector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1879719653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879719652}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae1d8da5a3c0644bb98a540ca597dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /joint_states
+  JointStateReaders:
+  - {fileID: 0}
+  - {fileID: 0}
+  FrameId: Unity
+--- !u!114 &1879719654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879719652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8346600dd4db234680344092ad74320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UrdfRobot: {fileID: 2039514514}
+--- !u!114 &1879719655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879719652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98778ae051cfd40a6e4effdf851ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsTimeout: 10
+  Serializer: 0
+  protocol: 0
+  RosBridgeServerUrl: ws://127.0.0.1:9090
+--- !u!4 &1879719656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879719652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879719657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879719652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe4cf3b1dd3507418f7ec019f9193ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /joint_states
+  TimeStep: 0.01
+  JointNames:
+  - shoulder_pan_joint
+  - shoulder_lift_joint
+  - elbow_joint
+  - wrist_1_joint
+  - wrist_2_joint
+  - wrist_3_joint
+  JointStateWriters:
+  - {fileID: 501899787}
+  - {fileID: 1866822239}
+  - {fileID: 1154088718}
+  - {fileID: 637607648}
+  - {fileID: 441028814}
+  - {fileID: 351408679}
 --- !u!1 &1888218387
 GameObject:
   m_ObjectHideFlags: 8
