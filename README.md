@@ -45,7 +45,8 @@ source ~/.bashrc
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 ```
 
-###ROS INSTALL###
+### ROS INSTALL ###
+
 ```shell
 sudo apt update && sudo apt upgrade
 ```
@@ -79,10 +80,14 @@ rosrun rviz rviz
 First install rosbridge server in ubuntu
 ```sudo apt-get install ros-melodic-rosbridge-server```
 
+Copy the *bags* directory from this repo in the windows browser into `\\wsl$\Ubuntu-18.04\home\{ubuntu_username}`
+
 In separate terminals:
 ```roscore```
 ```roslaunch rosbridge_server rosbridge_websocket.launch```
-```rosbag play ur_driver.bag -l```
+```cd ~/bags && rosbag play ur_driver.bag -l```
+
+Run the unity scene and you should see the robot move a bit.
 
 ### URSIM Install ###
 Create an account and download [ursim](https://www.universal-robots.com/download/software-e-series/simulator-linux/offline-simulator-e-series-ur-sim-for-linux-582/) for the closest robot version.
