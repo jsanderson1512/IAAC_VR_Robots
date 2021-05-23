@@ -15,6 +15,9 @@ limitations under the License.
 
 using System.Collections.Generic;
 
+using UnityEngine; //debug
+
+
 namespace RosSharp.RosBridgeClient
 {
     public class JointStateSubscriber : UnitySubscriber<MessageTypes.Sensor.JointState>
@@ -28,6 +31,7 @@ namespace RosSharp.RosBridgeClient
             for (int i = 0; i < message.name.Length; i++)
             {
                 index = JointNames.IndexOf(message.name[i]);
+                //Debug.Log("ROS joint angle " + i + " = " + message.position[i]);
                 if (index != -1)
                     JointStateWriters[index].Write((float) message.position[i]);
             }
