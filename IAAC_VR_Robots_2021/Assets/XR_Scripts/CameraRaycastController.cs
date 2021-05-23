@@ -14,9 +14,15 @@ public class CameraRaycastController : MonoBehaviour
 
     void Update()
     {
-
-        Ray myRay = this.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-
+        Ray myRay = new Ray();
+        if (this.GetComponent<Camera>())
+        { 
+        myRay = this.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        }
+        else
+        {
+            myRay = new Ray(transform.position, transform.forward);
+        }
 
 
 
