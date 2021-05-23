@@ -1,7 +1,7 @@
 # IAAC MRAC WORKSHOP 3.2 - Drafting Deception #
 
 ## Installation ##
-Download and install Unity Version [2019.3.6](https://unity3d.com/get-unity/download/archive)
+Download and install Unity Version [2019.4.21](https://unity3d.com/get-unity/download/archive)
 
 This package includes [ROS#](https://github.com/siemens/ros-sharp), a set of open source software libraries and tools for [ROS](http://www.ros.org/) communication.
 
@@ -35,11 +35,7 @@ Download and install [VcXsrv]https://sourceforge.net/projects/vcxsrv/files/lates
 Run X-Launch from the start menu, and use the default settings apart from **unchecking** *native opengl* and **checking** *disable access control*.  
 Save the configuration file before clicking finish to use this as a shortcut for running with these settings in the future.
 
-
-
 <<<TEMP JEFF HERE>>>
-
-
 
 Add your windows machine's ip address (replace `{your_ip_address}`) to your bashrc by running (in ubuntu console)
 (If new to this, note you need to use *SHIFT+CTRL+C* for pasting in Ubuntu terminal)

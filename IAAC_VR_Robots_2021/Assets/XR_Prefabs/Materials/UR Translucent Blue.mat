@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glass Simple
+  m_Name: UR Translucent Blue
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
@@ -62,9 +62,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
-    - _Glossiness: 0.898
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 0.776
+    - _Metallic: 0
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -74,5 +74,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.79432184, g: 0.990566, b: 0.98852915, a: 0.03529412}
+    - _Color: {r: 0, g: 0.8089633, b: 1, a: 0.23921569}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

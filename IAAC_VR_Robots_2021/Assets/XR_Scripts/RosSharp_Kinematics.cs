@@ -109,15 +109,19 @@ public class RosSharp_Kinematics : MonoBehaviour
     private double[] dUR10 = { 127.3, 0, 0, 163.941, 115.7, 92.2 };
 
     //https://www.universal-robots.com/articles/ur/application-installation/dh-parameters-for-calculations-of-kinematics-and-dynamics/
-    //private double[] aUR10e = { 0, -612.7, -571.55, 0, 0, 0 }; //dh parameters for UR10e
-    //private double[] dUR10e = { 180.7, 0, 0, 174.15, 119.85, 116.55 };
+    private double[] aUR10e = { 0,          -612.7,      -571.55,       0,           0,          0 }; //dh parameters for UR10e
+    private double[] dUR10e = { 180.7,       0,          0,             174.15,     119.85,         116.55 };
 
-        //from urdf
+    //private double[] aUR10e = { 0,         -612,      -572.3,         0,           0,           0 }; //dh parameters for UR10
+    //private double[] dUR10e = { 127.3,         0,      0,         163.941,        115.7,       92.2 };
+
+
+    //from urdf
     //private double[] aUR10e = { 0, -613, -571, 0, 0, 0 }; //dh parameters for UR10e
     //private double[] dUR10e = { 181, 0, 0, 135, 120, 117 };
 
-    private double[] aUR10e = { 0, -612, -572.3, 0, 0, 0 }; //dh parameters for UR10
-    private double[] dUR10e = { 127.3, 0, 0, 163.941, 115.7, 92.2 };
+    //private double[] aUR10e = { 0, -612, -572.3, 0, 0, 0 }; //dh parameters for UR10
+    //private double[] dUR10e = { 127.3, 0, 0, 163.941, 115.7, 92.2 };
 
     private double[] a6400_150 = { 188, 950, 225, 0, 0, 0 }; //dh parameters for our robot (actual values to be set in "start"...these are for a 6400) 
     private double[] d6400_150 = { 900, 0, 0, 1300, 0, 200 };
