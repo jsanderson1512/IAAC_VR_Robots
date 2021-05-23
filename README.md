@@ -29,15 +29,17 @@ If prompted to update kernel, follow link and download/run .msi, running above c
 
 Get and install [Ubuntu 18.04 LTS via the Microsoft Store](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q).  Launch after installation, and set username and password.
 
+For easy access of Ubuntu terminal, powershell, etc. use [Windows Terminal](https://aka.ms/terminal).
+
+Download and install [VcXsrv]https://sourceforge.net/projects/vcxsrv/files/latest/download) for gui forwarding.  
+Run X-Launch from the start menu, and use the default settings apart from **unchecking** *native opengl* and **checking** *disable access control*.  
+Save the configuration file before clicking finish to use this as a shortcut for running with these settings in the future.
+
 
 
 <<<TEMP JEFF HERE>>>
 
 
-
-For easy access of Ubuntu terminal, powershell, etc. use [Windows Terminal](https://aka.ms/terminal).
-
-Download and install [VcXsrv]https://sourceforge.net/projects/vcxsrv/files/latest/download) for gui forwarding.  Run X-Launch from the start menu, and use the default settings apart from **unchecking** *native opengl* and **checking** *disable access control*.  Save the configuration file before clicking finish to use this as a shortcut for running with these settings in the future.
 
 Add your windows machine's ip address (replace `{your_ip_address}`) to your bashrc by running (in ubuntu console)
 (If new to this, note you need to use *SHIFT+CTRL+C* for pasting in Ubuntu terminal)

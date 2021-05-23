@@ -484,7 +484,7 @@ public class RosSharp_Kinematics : MonoBehaviour
             Vector3 targetPos = new Vector3(-1 * myPos.x * 1000f, -1 * myPos.z * 1000f, myPos.y * 1000f); //convert positon to mm and "correct" (robot) coordinate system
             Quaternion targetOrient = new Quaternion(-1 * myRotation.x, -1 * myRotation.z, myRotation.y, -1 * myRotation.w); //new Quaternion(-q.x, -q.z, q.y, -q.w);
 
-            Debug.Log("Target " + targetPos + " Orient " + targetOrient);
+            //Debug.Log("Target " + targetPos + " Orient " + targetOrient);
 
             //set a transform variable to store our current target
             robCoordTarget.SetPositionAndRotation(targetPos, targetOrient);
@@ -520,8 +520,10 @@ public class RosSharp_Kinematics : MonoBehaviour
             else if (robotModel == RobotModel.UR_10e)
             {
                 ikResponse = URInverseKinematics(robCoordTarget, tcp, lastAngles);
-                ikResponse[1] -= 90f; //rlj
-                ikResponse[3] -= 90f; //rlj
+
+                //we dont want to do this here -- it will cause it to SPIN if it doesnt get a solution
+                //ikResponse[1] -= 90f; //rlj
+                //ikResponse[3] -= 90f; //rlj
             }
 
             
@@ -541,7 +543,7 @@ public class RosSharp_Kinematics : MonoBehaviour
             axis5 = jointAngles[4];
             axis6 = jointAngles[5];
 
-            Debug.Log("IK joint angles " + jointAngles[0] + " , " + jointAngles[1] + " , " + jointAngles[2] + " , " + jointAngles[3] + " , " + jointAngles[4] + " , " + jointAngles[5]);
+            //Debug.Log("IK joint angles " + jointAngles[0] + " , " + jointAngles[1] + " , " + jointAngles[2] + " , " + jointAngles[3] + " , " + jointAngles[4] + " , " + jointAngles[5]);
 
 
             //unsure if this is valid...? Just changing the sliders...
@@ -1109,7 +1111,6 @@ public class RosSharp_Kinematics : MonoBehaviour
                 //argh
                 degs[1] += 90f; //rlj
                 degs[3] += 90f; //rlj
-                //degs[5] = 90f - degs[5]; //jsa
             }
 
             else if (robotModel == RobotModel.UR_10e)
@@ -1117,11 +1118,16 @@ public class RosSharp_Kinematics : MonoBehaviour
                 //jsa
                 //argh
                 degs[0] += -90f; //
-                degs[1] += 90f; //
+                degs[1] += 0f; //
                 degs[2] += 0f; //
-                degs[3] += 90f; //
+                degs[3] += 0f; //
                 degs[4] += 0f; //
-                degs[5] += 0f; //
+
+                //final angle not working... cannot understand why
+                //degs[5] *= -1; //
+                //degs[5] += 180 - degs[5]; //
+
+
             }
 
 
