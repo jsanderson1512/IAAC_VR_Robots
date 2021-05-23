@@ -10922,8 +10922,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Topic: /pose_pub
-  targetPose: {fileID: 0}
-  robotBaseFrame: {fileID: 0}
+  targetPose: {fileID: 439576717}
+  robotBaseFrame: {fileID: 1331309212}
 --- !u!4 &1887689666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2935089361363752740, guid: cb8b316454830fe47a2850b184d00a2c,
