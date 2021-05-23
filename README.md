@@ -35,8 +35,6 @@ Download and install [VcXsrv]https://sourceforge.net/projects/vcxsrv/files/lates
 Run X-Launch from the start menu, and use the default settings apart from **unchecking** *native opengl* and **checking** *disable access control*.  
 Save the configuration file before clicking finish to use this as a shortcut for running with these settings in the future.
 
-<<<TEMP JEFF HERE>>>
-
 Add your windows machine's ip address (replace `{your_ip_address}`) to your bashrc by running (in ubuntu console)
 (If new to this, note you need to use *SHIFT+CTRL+C* for pasting in Ubuntu terminal)
 
@@ -130,3 +128,8 @@ Once you are able to successfully launch ursim, you need to add the URCap in:
 ## Workshop ##
 This unity package is developed in connection to the Drafting Deception workshop tutored by [Jeffrey Anderson](https://jeffandarch.com/) and [Ryan Luke Johns](http://www.greyshed.com/), together with [Daniil Koshelyuk](https://daniil.koshelyuk.site/) and [Soroush Garivani](http://iaac.net/mrac).
 
+## References ##
+If you make use of this repository content for academic work, consider citing:
+```
+Johns R.L., Anderson J., Kilian A. (2020) Robo-Stim: Modes of Human Robot Collaboration for Design Exploration. In: Gengnagel C., Baverel O., Burry J., Ramsgaard Thomsen M., Weinzierl S. (eds) Impact: Design With All Senses. DMSB 2019. Springer, Cham. https://doi.org/10.1007/978-3-030-29829-6_52
+```
