@@ -1566,7 +1566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342042414}
   m_LocalRotation: {x: -0.000000061817246, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.09220015, y: 0.000000052154064, z: 0}
+  m_LocalPosition: {x: -0.09220015, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.0000002}
   m_Children:
   - {fileID: 1033191552}
@@ -1626,7 +1626,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.09220024, y: 0.00000008195639, z: 0.00000011920929}
+  m_ConnectedAnchor: {x: -0.09220024, y: 0.000000022351742, z: 0.00000011920929}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1682,9 +1682,9 @@ MonoBehaviour:
   DisplayInertiaGizmo: 0
   rigidbodyDataSource: 1
   Mass: 0.202
-  CenterOfMass: {x: 0.00000017881393, y: -0.009999871, z: 0.00000011920929}
-  InertiaTensor: {x: 0.0000033666693, y: 0.0000033666686, z: 0.000003366671}
-  InertiaTensorRotation: {x: 0, y: 0.0000002104789, z: 0, w: 1}
+  CenterOfMass: {x: 0, y: 0, z: 0}
+  InertiaTensor: {x: 1, y: 1, z: 1}
+  InertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
   UrdfMass: 0.202
   UrdfCenterOfMass: {x: -0, y: -0.025, z: 0}
   UrdfInertiaTensor: {x: 0.00014434577, y: 0.000204525, z: 0.00014434577}
@@ -2397,7 +2397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &422302466
 Transform:
   m_ObjectHideFlags: 0
@@ -3771,6 +3771,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 39740884}
     m_Modifications:
+    - target: {fileID: 88476162, guid: ac7d8e2727fd62642abaf7b69073f526, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083854198, guid: ac7d8e2727fd62642abaf7b69073f526, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083854198, guid: ac7d8e2727fd62642abaf7b69073f526, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083854198, guid: ac7d8e2727fd62642abaf7b69073f526, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1051400135397133960, guid: ac7d8e2727fd62642abaf7b69073f526,
         type: 3}
       propertyPath: m_Name
@@ -7468,7 +7484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047623759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7763573e-15, y: 0.16394107, z: -0.5723001}
+  m_LocalPosition: {x: 0, y: 0.16394107, z: -0.5723001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 685466411}
@@ -12611,7 +12627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775436733}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.11570006, y: 0.000000059604645, z: 0}
+  m_LocalPosition: {x: 0.11570006, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1009297848}
@@ -12686,7 +12702,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.1157001, y: 0.00000010430813, z: 0.00000011920929}
+  m_ConnectedAnchor: {x: 0.1157001, y: 0.000000044703484, z: 0.00000011920929}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -12852,8 +12868,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804555781}
   m_LocalRotation: {x: 3.5527124e-15, y: -3.5527124e-15, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000000052154085, y: 0.00000014901161, z: 1.758646e-14}
-  m_LocalScale: {x: 0.99999976, y: 0.99999976, z: 0.99999976}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 805838615}
   - {fileID: 802209534}

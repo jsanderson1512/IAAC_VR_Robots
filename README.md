@@ -22,15 +22,18 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 Restart Machine, and then in powershell again:
 
 
-<<<TEMP JEFF HERE>>>
-
-
 ```shell
 wsl --set-default-version 2
 ```
 If prompted to update kernel, follow link and download/run .msi, running above command again after.
 
 Get and install [Ubuntu 18.04 LTS via the Microsoft Store](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q).  Launch after installation, and set username and password.
+
+
+
+<<<TEMP JEFF HERE>>>
+
+
 
 For easy access of Ubuntu terminal, powershell, etc. use [Windows Terminal](https://aka.ms/terminal).
 

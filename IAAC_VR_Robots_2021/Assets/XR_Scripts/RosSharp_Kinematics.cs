@@ -113,11 +113,11 @@ public class RosSharp_Kinematics : MonoBehaviour
     //private double[] dUR10e = { 180.7, 0, 0, 174.15, 119.85, 116.55 };
 
         //from urdf
-    private double[] aUR10e = { 0, -613, -571, 0, 0, 0 }; //dh parameters for UR10e
-    private double[] dUR10e = { 181, 0, 0, 135, 120, 117 };
+    //private double[] aUR10e = { 0, -613, -571, 0, 0, 0 }; //dh parameters for UR10e
+    //private double[] dUR10e = { 181, 0, 0, 135, 120, 117 };
 
-    //private double[] aUR10e = { 0, -612, -572.3, 0, 0, 0 }; //dh parameters for UR10
-    //private double[] dUR10e = { 127.3, 0, 0, 163.941, 115.7, 92.2 };
+    private double[] aUR10e = { 0, -612, -572.3, 0, 0, 0 }; //dh parameters for UR10
+    private double[] dUR10e = { 127.3, 0, 0, 163.941, 115.7, 92.2 };
 
     private double[] a6400_150 = { 188, 950, 225, 0, 0, 0 }; //dh parameters for our robot (actual values to be set in "start"...these are for a 6400) 
     private double[] d6400_150 = { 900, 0, 0, 1300, 0, 200 };
@@ -599,7 +599,7 @@ public class RosSharp_Kinematics : MonoBehaviour
             joints[4].transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, -1 * jointAngles[4]));//z
             joints[5].transform.localRotation = Quaternion.Euler(new Vector3(-1 * jointAngles[5], 0f, 0f));//x
         }
-        else if (robotModel == RobotModel.UR_3 || robotModel == RobotModel.UR_5 || robotModel == RobotModel.UR_10 || robotModel == RobotModel.UR_10)
+        else if (robotModel == RobotModel.UR_3 || robotModel == RobotModel.UR_5 || robotModel == RobotModel.UR_10)
         {
             //otherwise we are a UR arm
             //set the transformation data for each joint based on the joint values, no matter which type of kinematic option we are using (FK/IK/Random)
@@ -611,8 +611,10 @@ public class RosSharp_Kinematics : MonoBehaviour
             joints[5].transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, -1 * jointAngles[5]));
         }
 
-        if(robotModel == RobotModel.UR_10e)
+        else if(robotModel == RobotModel.UR_10e)
         {
+
+
             //updated our RosSharp/URDF based kinematic model by updating JointStateWriters (for now only used for UR10e, hence if)
             for (int i = 0; i < jointAngles.Length; i++)
             {
@@ -1100,10 +1102,29 @@ public class RosSharp_Kinematics : MonoBehaviour
             double[] degs = { (float)joints[0] * Mathf.Rad2Deg, (float)joints[1] * Mathf.Rad2Deg, (float)joints[2] * Mathf.Rad2Deg, (float)joints[3] * Mathf.Rad2Deg, (float)joints[4] * Mathf.Rad2Deg, (float)joints[5] * Mathf.Rad2Deg };
             //degs = degs2;
 
-            //argh
-            degs[1] += 90f; //rlj
-            degs[3] += 90f; //rlj
-            //degs[5] = 90f - degs[5]; //jsa
+
+            if (robotModel == RobotModel.UR_3 || robotModel == RobotModel.UR_5 || robotModel == RobotModel.UR_10)
+            {
+
+                //argh
+                degs[1] += 90f; //rlj
+                degs[3] += 90f; //rlj
+                //degs[5] = 90f - degs[5]; //jsa
+            }
+
+            else if (robotModel == RobotModel.UR_10e)
+            {
+                //jsa
+                //argh
+                degs[0] += -90f; //
+                degs[1] += 90f; //
+                degs[2] += 0f; //
+                degs[3] += 90f; //
+                degs[4] += 0f; //
+                degs[5] += 0f; //
+            }
+
+
 
             //Debug.Log(degs[0] + ", " + degs[1] + ", " + degs[2] + ", " + degs[3] + ", " + degs[4] + ", " + degs[5]);
             return degs;
