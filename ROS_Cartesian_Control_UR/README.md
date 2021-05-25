@@ -20,6 +20,7 @@ $ source devel_isolated/setup.bash
 ```
 
 **Setting up a UR robot for ur_robot_driver**
+
 For using the ur_robot_driver with a real robot you need to install the *externalcontrol-1.0.4.urcap* which can be found inside the [resources folder](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/tree/beta-testing/ur_robot_driver/resources) of this driver.
 
 
