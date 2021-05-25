@@ -1,4 +1,4 @@
-# Drafting Deception - ROS Cartesian Control for UR10e Through Grasshopper
+# Drafting Deception - ROS Cartesian Control for UR10e
 
 ## Installation ##
 **Install UR ROS DRIVER [(Beta branch)](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/tree/beta-testing#Building)**
@@ -31,6 +31,13 @@ For using the ur_robot_driver with a real robot you need to install the *externa
 
 
 ## Usage
+
+Copy the files `grasshopper_ur_twist.py` and `cartesian_trajectory_action_client.py` from `IAAC_VR_Robots/ROS_Cartesian_Control_UR/ROS_Scripts/` of this repository, to the `/ur_driver/src/cartesian_ros_control/pass_through_controllers/examples/script/` folder. 
+
+```
+$ cd ~/ur_driver
+$ catkin_make_isolated
+```
 
 
 ### Terminal 1:  UR Bring up
