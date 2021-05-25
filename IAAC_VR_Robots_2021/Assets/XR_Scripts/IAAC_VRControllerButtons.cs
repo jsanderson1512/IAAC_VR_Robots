@@ -188,9 +188,14 @@ public class IAAC_VRControllerButtons : MonoBehaviour
 
         float PadLimitHigh = 0.7f;
         float PadLimitLow = 0.3f;
+
         if (e.padX < -(PadLimitHigh) && e.padY < PadLimitLow)
         { //Left
+
             Debug.Log("hey i clicked the pad button left");
+            //do the thing on the left lcick whatever
+
+
         }
         else if (e.padX > PadLimitHigh && e.padY < PadLimitLow)
         { //Right
