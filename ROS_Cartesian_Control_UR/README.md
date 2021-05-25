@@ -3,7 +3,7 @@
 ## Installation ##
 **Install UR ROS DRIVER [(Beta branch)](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/tree/beta-testing#Building)**
 
-` recommended with ` [Ubuntu 18.04 Realtime Kernel](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/beta-testing/ur_robot_driver/doc/real_time.md) ` and ROS Melodic `
+*recommended with [Ubuntu 18.04 Realtime Kernel](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/beta-testing/ur_robot_driver/doc/real_time.md) and ROS Melodic 
 
 ```
 source /opt/ros/<your_ros_version>/setup.bash
