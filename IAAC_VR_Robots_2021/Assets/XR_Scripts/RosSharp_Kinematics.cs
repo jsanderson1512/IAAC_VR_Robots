@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using RosSharp.RosBridgeClient;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages robot motion by setting robot joint angles, either directly or using IK and a target plane.
@@ -9,6 +11,10 @@ using System;
 public class RosSharp_Kinematics : MonoBehaviour
 {
     public IAAC_TwistPublisher ROSTwistPublisher;
+    public JointStateSubscriber FKjointStates;
+
+    public Image toggleButtonImage;
+    private bool movingActivated;
 
 
     [System.Serializable]
@@ -48,6 +54,7 @@ public class RosSharp_Kinematics : MonoBehaviour
     public Vector3 TCPDifferencePosition;
     public Quaternion TCPDifferenceRotation;
 
+    public int PointSendCounter = 0;
 
     public List<RosSharp.RosBridgeClient.JointStateWriter> JointStateWriters;
 
@@ -391,7 +398,73 @@ public class RosSharp_Kinematics : MonoBehaviour
             ROSTwistPublisher.PublishTwist();
         }
     }
+
+    public void ToggleAdaptivePosSender()
+    {
+        movingActivated = !movingActivated;
+
+        if (movingActivated)
+        {
+            PointSendCounter = 0;
+            toggleButtonImage.color = Color.green;
+            SendPointsToROSOneAtATime();
+        }
+        else
+        {
+            toggleButtonImage.color = Color.yellow;
+
+        }
+    }
+
+    public void SendPointsToROSOneAtATime()
+    {
+        if (movingActivated)
+        {
+            if (PointSendCounter < RobotTarget_Parent_WorldSpace.transform.childCount)
+            {
+                Debug.Log("Hello I sent a point");
+
+
+                RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(PointSendCounter).transform;
+
+
+                RobotTarget_RobotSpace.position = RobotTarget_WorldSpace.position;//set position in world to match the robot target
+                RobotTarget_RobotSpace.rotation = RobotTarget_WorldSpace.rotation;//set position in world to match the robot target
+
+
+                ROSTwistPublisher.PublishTwist();
+
+                PointSendCounter++;
+            }
+            else
+            {
+                movingActivated = false;
+                PointSendCounter = 0;
+            }
+        }
+
+        
+    }
     #endregion
+
+
+    public void RefreshJointsFromFK()
+    {
+        for(int i = 0; i < FKjointStates.jointAngles.Length;i++)
+        {
+            //do the oopposite
+            //float jointAngleRad = jointAngles[i] * Mathf.Deg2Rad;
+
+
+
+            float joint = FKjointStates.jointAngles[i] * Mathf.Rad2Deg;
+
+            Debug.Log("ROS joint angle " + i + " = " + joint);
+
+            lastAngles[i] = joint;
+        }
+        
+    }
 
     public void SetJointAngles(float[] incomingAngles)
     {

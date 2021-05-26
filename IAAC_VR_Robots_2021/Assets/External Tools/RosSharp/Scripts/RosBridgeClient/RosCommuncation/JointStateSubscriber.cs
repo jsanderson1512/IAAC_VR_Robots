@@ -25,6 +25,9 @@ namespace RosSharp.RosBridgeClient
         public List<string> JointNames;
         public List<JointStateWriter> JointStateWriters;
 
+        //JEFF this is to store the angles so I can refresh the IK model from the FK model values
+        public float[] jointAngles = new float[6];
+
         protected override void ReceiveMessage(MessageTypes.Sensor.JointState message)
         {
             int index;
@@ -33,7 +36,12 @@ namespace RosSharp.RosBridgeClient
                 index = JointNames.IndexOf(message.name[i]);
                 //Debug.Log("ROS joint angle " + i + " = " + message.position[i]);
                 if (index != -1)
-                    JointStateWriters[index].Write((float) message.position[i]);
+                {
+                    JointStateWriters[index].Write((float)message.position[i]);
+
+                    //JEFF this is to store the angles so I can refresh the IK model from the FK model values
+                    jointAngles[i] = (float)message.position[i];
+                }
             }
         }
     }
