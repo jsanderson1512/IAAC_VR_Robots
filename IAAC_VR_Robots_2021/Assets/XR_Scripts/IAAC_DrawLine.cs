@@ -92,7 +92,7 @@ public class IAAC_DrawLine : MonoBehaviour
 
 
                 axisInstantiate.transform.RotateAround(axisInstantiate.transform.position, axisInstantiate.transform.right, 180);
-                axisInstantiate.transform.localScale = new Vector3(.01f, .01f, .01f);
+                axisInstantiate.transform.localScale = new Vector3(.1f, .1f, .1f);
                 axisInstantiate.transform.parent = myDoodleLineRend.transform;
             }
         }
@@ -132,6 +132,11 @@ public class IAAC_DrawLine : MonoBehaviour
         paintingOn = false;
 
         currVerticies = new List<Vector3>();
+
+    }
+
+    public void DoTheThing()
+    {
 
     }
 }

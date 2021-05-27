@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using RosSharp.RosBridgeClient;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages robot motion by setting robot joint angles, either directly or using IK and a target plane.
 /// </summary>
 public class RosSharp_Kinematics : MonoBehaviour
 {
+    public IAAC_TwistPublisher ROSTwistPublisher;
+    public JointStateSubscriber FKjointStates;
+
+    public Image toggleButtonImage;
+    private bool movingActivated;
+
 
     [System.Serializable]
     public enum RobotModel // this public var should appear as a drop down
@@ -46,6 +54,7 @@ public class RosSharp_Kinematics : MonoBehaviour
     public Vector3 TCPDifferencePosition;
     public Quaternion TCPDifferenceRotation;
 
+    public int PointSendCounter = 0;
 
     public List<RosSharp.RosBridgeClient.JointStateWriter> JointStateWriters;
 
@@ -266,34 +275,22 @@ public class RosSharp_Kinematics : MonoBehaviour
         RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
     }
 
-    public void NextTarget()
+    #region PREVIEWING FUNCTIONS
+    public void PreviewNextTarget()
     {
         TargetNumber++;
         TargetNumber = Mathf.Clamp(TargetNumber,0, RobotTarget_Parent_WorldSpace.transform.childCount-1);
         RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
     }
-    public void PreviousTarget()
+    public void PreviewPreviousTarget()
     {
         TargetNumber--;
         TargetNumber = Mathf.Clamp(TargetNumber, 0, RobotTarget_Parent_WorldSpace.transform.childCount-1);
         RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
     }
-    public void SendPoint()
-    {
 
-        Vector3 myPos = RobotTarget_RobotSpace.localPosition;  //jeff changed this to local position so its in each robot coordinate system
-        Quaternion myRotation = RobotTarget_RobotSpace.localRotation; //jeff changed this to local rotation
 
-        //convert plane from unity convention to robot convention
-        //exposed in case we need to reformat here:
-        Vector3 targetPos = new Vector3(-1 * myPos.x * 1000f, -1 * myPos.z * 1000f, myPos.y * 1000f); //convert positon to mm and "correct" (robot) coordinate system
-        Quaternion targetOrient = new Quaternion(-1 * myRotation.x, -1 * myRotation.z, myRotation.y, -1 * myRotation.w); //new Quaternion(-q.x, -q.z, q.y, -q.w);
-
-        Debug.Log("sending this pose: (" + targetPos.x + ", " + targetPos.y + ", " + targetPos.z+ ") (" + targetOrient.w + ", " + targetOrient.x + ", " + targetOrient.y + ", " + targetOrient.z + ")");
-        //WORKING HERE! SEND THIS POINT TO ROS
-        //Send these points to ROS
-    }
-    public void SendAllPoints()
+    public void PreviewSendAllPoints()
     {
         if(!StartedCoroutine)
         {
@@ -333,7 +330,7 @@ public class RosSharp_Kinematics : MonoBehaviour
 
                 RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
 
-                SendPoint();
+                //SendPoint();
 
                 previousPos = RobotTarget_WorldSpace.position;
                 previousRot = RobotTarget_WorldSpace.rotation;
@@ -370,7 +367,7 @@ public class RosSharp_Kinematics : MonoBehaviour
                 //reset this here just to be sure
                 RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(TargetNumber).transform;
 
-                SendPoint();
+                //SendPoint();
 
                 previousPos = RobotTarget_WorldSpace.position;
                 previousRot = RobotTarget_WorldSpace.rotation;
@@ -381,6 +378,92 @@ public class RosSharp_Kinematics : MonoBehaviour
         StartedCoroutine = false;
 
         yield return null;
+    }
+#endregion
+
+
+    #region SEND TO ROS
+    public void SendPointsToROS()
+    {
+        for (int i = 0; i < RobotTarget_Parent_WorldSpace.transform.childCount; i++)
+        {
+
+            RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(i).transform;
+
+
+            RobotTarget_RobotSpace.position = RobotTarget_WorldSpace.position;//set position in world to match the robot target
+            RobotTarget_RobotSpace.rotation = RobotTarget_WorldSpace.rotation;//set position in world to match the robot target
+
+
+            ROSTwistPublisher.PublishTwist();
+        }
+    }
+
+    public void ToggleAdaptivePosSender()
+    {
+        movingActivated = !movingActivated;
+
+        if (movingActivated)
+        {
+            PointSendCounter = 0;
+            toggleButtonImage.color = Color.green;
+            SendPointsToROSOneAtATime();
+        }
+        else
+        {
+            toggleButtonImage.color = Color.yellow;
+
+        }
+    }
+
+    public void SendPointsToROSOneAtATime()
+    {
+        if (movingActivated)
+        {
+            if (PointSendCounter < RobotTarget_Parent_WorldSpace.transform.childCount)
+            {
+                Debug.Log("Hello I sent a point");
+
+
+                RobotTarget_WorldSpace = RobotTarget_Parent_WorldSpace.transform.GetChild(PointSendCounter).transform;
+
+
+                RobotTarget_RobotSpace.position = RobotTarget_WorldSpace.position;//set position in world to match the robot target
+                RobotTarget_RobotSpace.rotation = RobotTarget_WorldSpace.rotation;//set position in world to match the robot target
+
+
+                ROSTwistPublisher.PublishTwist();
+
+                PointSendCounter++;
+            }
+            else
+            {
+                movingActivated = false;
+                PointSendCounter = 0;
+            }
+        }
+
+        
+    }
+    #endregion
+
+
+    public void RefreshJointsFromFK()
+    {
+        for(int i = 0; i < FKjointStates.jointAngles.Length;i++)
+        {
+            //do the oopposite
+            //float jointAngleRad = jointAngles[i] * Mathf.Deg2Rad;
+
+
+
+            float joint = FKjointStates.jointAngles[i] * Mathf.Rad2Deg;
+
+            Debug.Log("ROS joint angle " + i + " = " + joint);
+
+            lastAngles[i] = joint;
+        }
+        
     }
 
     public void SetJointAngles(float[] incomingAngles)
