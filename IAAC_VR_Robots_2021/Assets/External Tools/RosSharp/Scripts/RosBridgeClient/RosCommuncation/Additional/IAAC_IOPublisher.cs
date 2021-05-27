@@ -4,12 +4,12 @@ using UnityEngine;
 using RosSharp.RosBridgeClient;
 
 
-public class IAAC_IntArrayPublisher : UnityPublisher<RosSharp.RosBridgeClient.MessageTypes.Std.Int32MultiArray>
+public class IAAC_IOPublisher : UnityPublisher<RosSharp.RosBridgeClient.MessageTypes.Std.Int32MultiArray>
 {
     private RosSharp.RosBridgeClient.MessageTypes.Std.Int32MultiArray message;
 
-    // Update is called once per frame
-    public void SendNewIO(int pinID, int state)
+    // publish IO message once when called
+    public void SetIO(int pinID, int state)
     {
         int[] ioArray = new int[] {pinID, state};
         message.data = ioArray;
