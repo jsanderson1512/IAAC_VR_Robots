@@ -15,4 +15,9 @@ public class IAAC_IOPublisher : UnityPublisher<RosSharp.RosBridgeClient.MessageT
         message.data = ioArray;
         Publish(message);
     }
+
+    public void Test(int state)
+    {
+        SetIO(1, state);
+    }
 }
