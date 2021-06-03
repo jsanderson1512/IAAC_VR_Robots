@@ -45,7 +45,7 @@ $ catkin_make_isolated
 
 ``` 
 $ source ~/ur_driver/devel_isolated/setup.bash
-$ roslaunch ur_robot_driver <robot_type>_bringup.launch robot_ip:=192.168.56.101 kinematics_config:=$(rospack find ur_calibration)/etc ur10_example_calibration.yaml 
+$ roslaunch ur_robot_driver <robot_type>_bringup.launch robot_ip:=192.168.1.25 kinematics_config:=$(rospack find ur_calibration)/etc ur10_example_calibration.yaml 
 ```
 
 
