@@ -66,7 +66,7 @@ $ roslaunch rosbridge_server rosbridge_websocket.launch
 ### Terminal 4: 
 ```
 $ source ~/ur_driver/devel_isolated/setup.bash
-$ rosrun pass_through_controllers grasshopper_ur_twist.py
+$ rosrun pass_through_controllers grasshopper_ur.py
 ```
 
 *By sending `geoemetry_msgs/Twist` messages on `/target_plane_twist` you can send target planes to the UR.*
