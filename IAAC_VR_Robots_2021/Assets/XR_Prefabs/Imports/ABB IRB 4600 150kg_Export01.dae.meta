@@ -1,126 +1,350 @@
 fileFormatVersion: 2
 guid: d2cf09111809cf64f91cd2690868ffeb
-timeCreated: 1519110259
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Brep
-    100004: Brep 1
-    100006: Brep 10
-    100008: Brep 11
-    100010: Brep 12
-    100012: Brep 13
-    100014: Brep 14
-    100016: Brep 15
-    100018: Brep 16
-    100020: Brep 17
-    100022: Brep 18
-    100024: Brep 2
-    100026: Brep 3
-    100028: Brep 4
-    100030: Brep 5
-    100032: Brep 6
-    100034: Brep 7
-    100036: Brep 8
-    100038: Brep 9
-    100040: View-Front
-    100042: View-Left
-    100044: View-Perspective
-    100046: View-Top
-    400000: //RootNode
-    400002: Brep
-    400004: Brep 1
-    400006: Brep 10
-    400008: Brep 11
-    400010: Brep 12
-    400012: Brep 13
-    400014: Brep 14
-    400016: Brep 15
-    400018: Brep 16
-    400020: Brep 17
-    400022: Brep 18
-    400024: Brep 2
-    400026: Brep 3
-    400028: Brep 4
-    400030: Brep 5
-    400032: Brep 6
-    400034: Brep 7
-    400036: Brep 8
-    400038: Brep 9
-    400040: View-Front
-    400042: View-Left
-    400044: View-Perspective
-    400046: View-Top
-    2000000: View-Front
-    2000002: View-Left
-    2000004: View-Perspective
-    2000006: View-Top
-    2100000: No Name
-    2100002: cf0554cd-dbde-4c8b-a460-8e14b99c128e
-    2100004: Material-Black_Sandblasted_Plastic
-    2300000: Brep
-    2300002: Brep 1
-    2300004: Brep 10
-    2300006: Brep 11
-    2300008: Brep 12
-    2300010: Brep 13
-    2300012: Brep 14
-    2300014: Brep 15
-    2300016: Brep 16
-    2300018: Brep 17
-    2300020: Brep 18
-    2300022: Brep 2
-    2300024: Brep 3
-    2300026: Brep 4
-    2300028: Brep 5
-    2300030: Brep 6
-    2300032: Brep 7
-    2300034: Brep 8
-    2300036: Brep 9
-    3300000: Brep
-    3300002: Brep 1
-    3300004: Brep 10
-    3300006: Brep 11
-    3300008: Brep 12
-    3300010: Brep 13
-    3300012: Brep 14
-    3300014: Brep 15
-    3300016: Brep 16
-    3300018: Brep 17
-    3300020: Brep 18
-    3300022: Brep 2
-    3300024: Brep 3
-    3300026: Brep 4
-    3300028: Brep 5
-    3300030: Brep 6
-    3300032: Brep 7
-    3300034: Brep 8
-    3300036: Brep 9
-    4300000: Brep
-    4300002: Brep
-    4300004: Brep
-    4300006: Brep
-    4300008: Brep
-    4300010: Brep
-    4300012: Brep
-    4300014: Brep
-    4300016: Brep
-    4300018: Brep
-    4300020: Brep
-    4300022: Brep
-    4300024: Brep
-    4300026: Brep
-    4300028: Brep
-    4300030: Brep
-    4300032: Brep
-    4300034: Brep
-    4300036: Brep
-    9500000: //RootNode
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Brep
+  - first:
+      1: 100004
+    second: Brep 1
+  - first:
+      1: 100006
+    second: Brep 10
+  - first:
+      1: 100008
+    second: Brep 11
+  - first:
+      1: 100010
+    second: Brep 12
+  - first:
+      1: 100012
+    second: Brep 13
+  - first:
+      1: 100014
+    second: Brep 14
+  - first:
+      1: 100016
+    second: Brep 15
+  - first:
+      1: 100018
+    second: Brep 16
+  - first:
+      1: 100020
+    second: Brep 17
+  - first:
+      1: 100022
+    second: Brep 18
+  - first:
+      1: 100024
+    second: Brep 2
+  - first:
+      1: 100026
+    second: Brep 3
+  - first:
+      1: 100028
+    second: Brep 4
+  - first:
+      1: 100030
+    second: Brep 5
+  - first:
+      1: 100032
+    second: Brep 6
+  - first:
+      1: 100034
+    second: Brep 7
+  - first:
+      1: 100036
+    second: Brep 8
+  - first:
+      1: 100038
+    second: Brep 9
+  - first:
+      1: 100040
+    second: View-Front
+  - first:
+      1: 100042
+    second: View-Left
+  - first:
+      1: 100044
+    second: View-Perspective
+  - first:
+      1: 100046
+    second: View-Top
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Brep
+  - first:
+      4: 400004
+    second: Brep 1
+  - first:
+      4: 400006
+    second: Brep 10
+  - first:
+      4: 400008
+    second: Brep 11
+  - first:
+      4: 400010
+    second: Brep 12
+  - first:
+      4: 400012
+    second: Brep 13
+  - first:
+      4: 400014
+    second: Brep 14
+  - first:
+      4: 400016
+    second: Brep 15
+  - first:
+      4: 400018
+    second: Brep 16
+  - first:
+      4: 400020
+    second: Brep 17
+  - first:
+      4: 400022
+    second: Brep 18
+  - first:
+      4: 400024
+    second: Brep 2
+  - first:
+      4: 400026
+    second: Brep 3
+  - first:
+      4: 400028
+    second: Brep 4
+  - first:
+      4: 400030
+    second: Brep 5
+  - first:
+      4: 400032
+    second: Brep 6
+  - first:
+      4: 400034
+    second: Brep 7
+  - first:
+      4: 400036
+    second: Brep 8
+  - first:
+      4: 400038
+    second: Brep 9
+  - first:
+      4: 400040
+    second: View-Front
+  - first:
+      4: 400042
+    second: View-Left
+  - first:
+      4: 400044
+    second: View-Perspective
+  - first:
+      4: 400046
+    second: View-Top
+  - first:
+      20: 2000000
+    second: View-Front
+  - first:
+      20: 2000002
+    second: View-Left
+  - first:
+      20: 2000004
+    second: View-Perspective
+  - first:
+      20: 2000006
+    second: View-Top
+  - first:
+      21: 2100000
+    second: No Name
+  - first:
+      21: 2100002
+    second: cf0554cd-dbde-4c8b-a460-8e14b99c128e
+  - first:
+      21: 2100004
+    second: Material-Black_Sandblasted_Plastic
+  - first:
+      23: 2300000
+    second: Brep
+  - first:
+      23: 2300002
+    second: Brep 1
+  - first:
+      23: 2300004
+    second: Brep 10
+  - first:
+      23: 2300006
+    second: Brep 11
+  - first:
+      23: 2300008
+    second: Brep 12
+  - first:
+      23: 2300010
+    second: Brep 13
+  - first:
+      23: 2300012
+    second: Brep 14
+  - first:
+      23: 2300014
+    second: Brep 15
+  - first:
+      23: 2300016
+    second: Brep 16
+  - first:
+      23: 2300018
+    second: Brep 17
+  - first:
+      23: 2300020
+    second: Brep 18
+  - first:
+      23: 2300022
+    second: Brep 2
+  - first:
+      23: 2300024
+    second: Brep 3
+  - first:
+      23: 2300026
+    second: Brep 4
+  - first:
+      23: 2300028
+    second: Brep 5
+  - first:
+      23: 2300030
+    second: Brep 6
+  - first:
+      23: 2300032
+    second: Brep 7
+  - first:
+      23: 2300034
+    second: Brep 8
+  - first:
+      23: 2300036
+    second: Brep 9
+  - first:
+      33: 3300000
+    second: Brep
+  - first:
+      33: 3300002
+    second: Brep 1
+  - first:
+      33: 3300004
+    second: Brep 10
+  - first:
+      33: 3300006
+    second: Brep 11
+  - first:
+      33: 3300008
+    second: Brep 12
+  - first:
+      33: 3300010
+    second: Brep 13
+  - first:
+      33: 3300012
+    second: Brep 14
+  - first:
+      33: 3300014
+    second: Brep 15
+  - first:
+      33: 3300016
+    second: Brep 16
+  - first:
+      33: 3300018
+    second: Brep 17
+  - first:
+      33: 3300020
+    second: Brep 18
+  - first:
+      33: 3300022
+    second: Brep 2
+  - first:
+      33: 3300024
+    second: Brep 3
+  - first:
+      33: 3300026
+    second: Brep 4
+  - first:
+      33: 3300028
+    second: Brep 5
+  - first:
+      33: 3300030
+    second: Brep 6
+  - first:
+      33: 3300032
+    second: Brep 7
+  - first:
+      33: 3300034
+    second: Brep 8
+  - first:
+      33: 3300036
+    second: Brep 9
+  - first:
+      43: 4300000
+    second: Brep
+  - first:
+      43: 4300002
+    second: Brep
+  - first:
+      43: 4300004
+    second: Brep
+  - first:
+      43: 4300006
+    second: Brep
+  - first:
+      43: 4300008
+    second: Brep
+  - first:
+      43: 4300010
+    second: Brep
+  - first:
+      43: 4300012
+    second: Brep
+  - first:
+      43: 4300014
+    second: Brep
+  - first:
+      43: 4300016
+    second: Brep
+  - first:
+      43: 4300018
+    second: Brep
+  - first:
+      43: 4300020
+    second: Brep
+  - first:
+      43: 4300022
+    second: Brep
+  - first:
+      43: 4300024
+    second: Brep
+  - first:
+      43: 4300026
+    second: Brep
+  - first:
+      43: 4300028
+    second: Brep
+  - first:
+      43: 4300030
+    second: Brep
+  - first:
+      43: 4300032
+    second: Brep
+  - first:
+      43: 4300034
+    second: Brep
+  - first:
+      43: 4300036
+    second: Brep
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -137,6 +361,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -151,17 +376,23 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
@@ -173,10 +404,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -186,14 +420,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
